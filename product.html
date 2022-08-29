@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+  </head>
+  <body>
+    <button type="button" onclick="toggleShowTable()">Show Table</button>
+    <div id="table"></div>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "กรงกระต่าย",
+          price: 180,
+          img: "https://image.bestreview.asia/wp-content/uploads/2021/06/best-rabbit-cages-ex-01.jpg",
+        },
+        {
+          id: 2,
+          name: "อาหารเม็ด",
+          price: 200,
+          img: "https://th-test-11.slatic.net/p/6c0ae98ef705bca45d78c6092872cf4f.jpg",
+        },
+        {
+          id: 3,
+          name: "รองเท้ากระต่าย",
+          price: 120,
+          img: "https://cf.shopee.co.th/file/3bc59ea288396d2b7348112fba404a5c",
+        },
+        {
+          id: 4,
+          name: "เสื้อผ้า",
+          price: 150,
+          img: "https://cf.shopee.co.th/file/66db309ae4389d09518c5ff9553eccf9",
+        },
+        {
+          id: 5,
+          name: "ขวดให้น้ำ",
+          price: 160,
+          img: "https://cf.shopee.co.th/file/df5536176a6924b7c7a4b478ea31badf",
+        },
+        {
+          id: 6,
+          name: "หญ้าเเห้ง",
+          price: 140,
+          img: "https://cf.shopee.co.th/file/3dab280b4f766f5c138ea120a5675ab2",
+        },
+        {
+          id: 7,
+          name: "สายจูง",
+          price: 160,
+          img: "https://cf.shopee.co.th/file/71a1b894836cb105907ac10e73cc49a2",
+        },
+        {
+          id: 8,
+          name: "ขนมสำหรับกระต่าย",
+          price: 170,
+          img: "https://i.ytimg.com/vi/BvC2ZYsdzNc/maxresdefault.jpg",
+        },
+        {
+          id: 9,
+          name: "ของเล่น",
+          price: 160,
+          img: "https://lzd-img-global.slatic.net/g/p/bdfe9534c2b51f72dd09e0647dd88a18.jpg_720x720q80.jpg_.webp",
+        },
+        {
+          id: 10,
+          name: "ยาสำหรับกระต่าย",
+          price: 180,
+          img: "https://lzd-img-global.slatic.net/g/p/88654e5e9dcf0842889ff4963d67024e.png_720x720q80.jpg_.webp",
+        },
+        {
+          id: 11,
+          name: "โฟมอาบน้ํากระต่าย",
+          price: 180,
+          img: "https://lzd-img-global.slatic.net/g/p/d2253964affcd0bfc5dc8ca89da26647.jpg_720x720q80.jpg_.webp",
+        },
+        {
+          id: 12,
+          name: "กระบะห้องน้ำกระต่าย",
+          price: 170,
+          img: "https://f.ptcdn.info/636/016/000/1394640218-IMG74831JP-o.jpg",
+        },
+      ];
+
+      const tableElement = document.getElementById("table");
+
+      let isShowing = false;
+
+      function createTable() {
+        let tableHTML = `<table border='1|1'>`;
+        tableHTML += `<tr>`;
+        tableHTML += `<td>id</td>`;
+        tableHTML += `<td>name</td>`;
+        tableHTML += `<td>price</td>`;
+        tableHTML += `<td>img</td>`;
+        tableHTML += `</tr>`;
+        products.forEach(function (product) {
+          tableHTML += `<tr>`;
+          tableHTML += `<td>${product.id}</td>`;
+          tableHTML += `<td>${product.name}</td>`;
+          tableHTML += `<td>${product.price}</td>`;
+          tableHTML += `<td><img src="${product.img}" width="300" height="400"/></td>`;
+          tableHTML += `</tr>`;
+        });
+        return tableHTML;
+      }
+
+      function toggleShowTable() {
+        isShowing = !isShowing;
+        if (isShowing) {
+          tableElement.innerHTML = createTable();
+        } else {
+          tableElement.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>
